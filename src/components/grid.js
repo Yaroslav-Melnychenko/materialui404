@@ -3,14 +3,21 @@ import Line from './line';
 
 class Grid extends Component {
 
+  state = {
+    pallete: [
+      {
+        color: 0,
+        saturation: 90,
+        lightness: 50,
+      }
+    ],
+    row: 12,
+    lines: 12
+  }
+
   constructor() {
     super();
-    this.lines = [
-      {
-        saturation: 90,
-        lightness: 50
-      }
-    ];
+
     for (let i = 1; i < 10; i++) {
       this.lines.push({
         saturation: this.lines[i-1].saturation - 10,
