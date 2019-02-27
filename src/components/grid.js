@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Line from './line';
+// import Line from './line';
 
 class Grid extends Component {
 
@@ -12,29 +12,28 @@ class Grid extends Component {
       }
     ],
     row: 12,
-    lines: 12
+    lines: 12,
+    colorStep: 20
   }
 
   constructor() {
     super();
 
-    for (let i = 1; i < 10; i++) {
-      this.lines.push({
-        saturation: this.lines[i-1].saturation - 10,
-        lightness: this.lines[i-1].lightness + 2
-      });
+    let palleteArray = [];
+    for (let x = 0; x < this.state.row; ) {
+      for () {
+
+      }
     }
+
+
   }
 
   render() {
     return(
       <table className="palette">
         <tbody>
-          {
-            this.lines.map((line, i) => {
-              return <Line key={i} saturation={line.saturation} lightness={line.lightness} />
-            })
-          }
+
         </tbody>
       </table>
     );
