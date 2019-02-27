@@ -11,23 +11,12 @@ class Grid extends Component {
         lightness: 50,
       }
     ],
-    row: 12,
-    lines: 12,
+    lines: 6,
     colorStep: 20
   }
 
   constructor() {
     super();
-
-    let palleteArray = [];
-    for (let y = 0; y < this.state.lines; y++) {
-      palleteArray.push()
-      for () {
-
-      }
-    }
-
-
   }
 
   render() {
