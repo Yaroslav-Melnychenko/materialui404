@@ -20,7 +20,8 @@ class Grid extends Component {
     super();
 
     let palleteArray = [];
-    for (let x = 0; x < this.state.row; ) {
+    for (let y = 0; y < this.state.lines; y++) {
+      palleteArray.push()
       for () {
 
       }
