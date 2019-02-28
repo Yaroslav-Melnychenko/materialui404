@@ -25,3 +25,19 @@ body{
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
+
+.colorpaletteitem-component:hover{
+  z-index: 2;
+  border-radius: 50%;
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

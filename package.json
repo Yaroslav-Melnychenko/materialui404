@@ -8,13 +8,15 @@
     "react": "^16.8.3",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-transition-group": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"**/*.js\" --fix --max-warnings=0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,5 +26,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-react-airbnb-prettier": "0.0.10"
+  }
 }

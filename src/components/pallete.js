@@ -7,9 +7,7 @@ class Pallete extends Component {
     return(
       <div className="pallete-container">
         {
-          this.props.colors.map((color, i) => {
-            return <Item key={i} color={color} />
-          })
+          this.props.colors.map((color, i) => <Item key={i} color={color} />)
         }
       </div>
     );

@@ -1,33 +1,45 @@
 import React, { Component } from 'react';
+import randomColor from 'randomcolor';
+// import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Header from './header/header';
 import Pallete from './pallete';
-import randomColor from 'randomcolor';
 
 class Main extends Component {
 
-  constructor(){
-    super();
-    this.colors = [];
-  }
+  state = {}
 
-  updateColors(){
-    for (let i = 0; i < 90; i++) {
-			let color = randomColor();
-			this.colors.push({
+  constructor() {
+		super();
+		const colors = [];
+		for(let i = 0; i < 90; i++) {
+			const color = randomColor();
+			colors.push({
 				code: color,
 				selected: false,
 				hovered: false
 			});
 		};
 		this.state = {
-			colors: this.colors,
-			multiselect: true,
-			isIdle: false
+			colors: colors,
+			// multiselect: true,
+			// isIdle: false
 		};
+  }
+  
+  updateColors(){
+    const colors = [];
+    for(let i = 0; i < 90; i++) {
+			const color = randomColor();
+			colors.push({
+				code: color,
+				selected: false,
+				hovered: false
+			});
+    };
+    this.setState({colors: colors});
   }
 
   render() {
-    {this.updateColors()}
     return (
       <div className="container">
         <div className="row">
@@ -42,13 +54,12 @@ class Main extends Component {
                 type="button"
                 className="btn btn-info btn-sm"
                 onClick={this.updateColors.bind(this)}
-              >New colors</button>
+              >New colors
+              </button>
             </div>
             <Pallete colors={this.state.colors} />
           </div>
-          <div className="col-md-5">
-            instruments
-          </div>
+          <div className="col-md-5">instruments</div>
         </div>
       </div>
     );
