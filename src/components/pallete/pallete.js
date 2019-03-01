@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Item from './item';
+import Item from '../item/item';
+import './pallete.scss';
 
 class Pallete extends Component {
 
@@ -7,7 +8,7 @@ class Pallete extends Component {
     return(
       <div className="pallete-container">
         {
-          this.props.colors.map((color, i) => <Item key={i} color={color} />)
+          this.props.colors.map((color, i) => <Item key={i} color={color} selectColor={this.props.selectColor} />)
         }
       </div>
     );

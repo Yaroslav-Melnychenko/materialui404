@@ -1,0 +1,59 @@
+.colorpaletteitem-component{
+    cursor: pointer;
+    position: relative;
+    float: left;
+    padding-bottom: 10%;
+    min-width: 50px;
+    width: 10%;
+    border-radius: 0;
+    color: #fff;
+    transition: 0.5s ease 0s,
+    transform 0.25s ease 0s;
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+.colorpaletteitem-component.selected{
+  -webkit-box-shadow: inset 0px 0px 0px 3px rgb(51, 51, 51);
+  -moz-box-shadow: inset 0px 0px 0px 3px rgb(51, 51, 51);
+  box-shadow: inset 0px 0px 0px 3px rgb(51, 51, 51);
+  -webkit-animation-name: clickedAnimation;
+  animation-name: clickedAnimation;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+
+@-webkit-keyframes clickedAnimation {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1) skew(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg) scale(1.4) skew(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg) scale(1) skew(0deg);
+  }
+}
+
+@keyframes clickedAnimation {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1) skew(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg) scale(1.4) skew(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg) scale(1) skew(0deg);
+  }
+}
+
+  .colorpaletteitem-component:hover{
+    z-index: 2;
+  }
