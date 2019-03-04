@@ -1,13 +1,5 @@
-import React, { Component } from 'react';
-import './header.scss';
+import React from 'react';
+import './Header.scss';
 
-class Header extends Component {
-  render(){
-    return(
-      <header>
-        Colors Pallete
-      </header>
-    );
-  }
-}
+const Header = () => <header>Colors Pallete</header>;
 export default Header;

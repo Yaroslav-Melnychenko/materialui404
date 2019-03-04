@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import Item from '../item/item';
-import './pallete.scss';
+import React from 'react';
+import Item from '../Item/Item';
+import './Pallete.scss';
 
-class Pallete extends Component {
-
-  render(){
-    return(
-      <div className="pallete-container">
-        {
-          this.props.colors.map((color, i) => <Item key={i} color={color} selectColor={this.props.selectColor} />)
-        }
-      </div>
-    );
-  }
-
-}
+const Pallete = (props) => {
+  const { colors } = props;
+  return(
+    <div className="pallete-container">
+      {
+        colors.map(color => <Item key={color.id} color={color} selectColor={props.selectColor} />)
+      }
+    </div>
+  );
+};  
 export default Pallete;

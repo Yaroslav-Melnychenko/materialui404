@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import randomColor from 'randomcolor';
-// import uniqid from 'uniqid';
-import Header from './header/header';
-import Pallete from './pallete/pallete';
-import Instruments from './instruments/instruments';
+import uniqid from 'uniqid';
+import Header from './Header/Header';
+import Pallete from './Pallete/Pallete';
+import Instruments from './Instruments/Instruments';
 
 class Main extends Component {
   constructor() {
     super();
     this.audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3');
 		const colors = [];
-		for(let i = 0; i < 90; i++) {
+		for(let i = 0; i < 90; i += 1) {
 			const color = randomColor();
 			colors.push({
-        id: i,
+        id: uniqid(),
 				code: color,
         selected: false
 			});
 		};
 		this.state = {
-      colors: colors,
+      colors,
       playButton: 'Play',
       playing: false
     };
@@ -27,12 +27,13 @@ class Main extends Component {
   }
 
   getSelectedColors() {
-		return this.state.colors.filter(color => color.selected);
+    const { colors } = this.state;
+		return colors.filter(color => color.selected);
 	}
   
   updateColors(){
     const colors = [];
-    for(let i = 0; i < 90; i++) {
+    for(let i = 0; i < 90; i += 1) {
 			const color = randomColor();
 			colors.push({
         id: i,
@@ -40,80 +41,60 @@ class Main extends Component {
 				selected: false
 			});
     };
-    this.setState({colors: colors});
+    this.setState({colors});
   }
 
   selectColor(id){
-    let selectedIndex = 0;
-    const selected = this.state.colors.find((color, index) => {
-      selectedIndex = index;
-      return color.id === id;
-    });
+    const { colors } = this.state;
+    const selected = colors.find(color => color.id === id);
     selected.selected = true;
-    const colorsArr = this.state.colors;
-    colorsArr.splice(selectedIndex, 1, selected);
-    this.setState({colors: colorsArr});
+    this.setState(prevState => prevState);
   }
 
   mixColors(){
-    const colors = this.state.colors;
+    const {colors} = this.state;
     colors.sort(() => Math.random() - 0.5);
-    this.setState({colors: colors});
+    this.setState({colors});
   }
 
   playMusic(){
-    if(!this.state.playing){
+    const { playing } = this.state;
+    if(!playing){
       this.audio.play();
     }else{
       this.audio.pause();
     }
-    this.setState({
-      colors: this.state.colors,
-      playButton: this.state.playButton === 'Play' ? 'Stop' : 'Play',
-      playing: !this.state.playing
-    });
+    this.setState(prevState => ({
+      colors: prevState.colors,
+      playButton: prevState.playButton === 'Play' ? 'Stop' : 'Play',
+      playing: !prevState.playing
+    }));
   }
 
   render() {
-    const colors = this.getSelectedColors();
+    const selectedColors = this.getSelectedColors();
+    const { colors } = this.state;
+    const { playButton } = this.state;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <Header />
-          </div>
+      <div className="row">
+        <div className="col-md-12">
+          <Header />
         </div>
-        <div className="row mt-5">
-          <div className="col-md-7">
-            <div className="panel-heading">
-              <button
-                type="button"
-                className="btn btn-info btn-sm"
-                onClick={this.updateColors.bind(this)}
-              >Reset
-              </button>
-              <button 
-                type="button"
-                className="btn btn-info btn-sm ml-2"
-                onClick={this.mixColors.bind(this)}
-              >Mix colors
-              </button>
-              <button 
-                type="button"
-                className="btn btn-info btn-sm ml-2"
-                onClick={this.playMusic.bind(this)}
-              >{this.state.playButton} music
-              </button>
-            </div>
-            <Pallete colors={this.state.colors} selectColor={this.selectColor} />
+        <div className="col-md-7">
+          <div className="panel-heading">
+            <button type="button" className="btn btn-info btn-sm" onClick={this.updateColors.bind(this)}>Reset</button>
+            <button type="button" className="btn btn-info btn-sm ml-2" onClick={this.mixColors.bind(this)}>Mix colors</button>
+            <button type="button" className="btn btn-info btn-sm ml-2" onClick={this.playMusic.bind(this)}>
+              {playButton} music
+            </button>
           </div>
-          <div className="col-md-5">
-            <Instruments colors={colors} />
-          </div>
+          <Pallete colors={colors} selectColor={this.selectColor} />
+        </div>
+        <div className="col-md-5">
+          <Instruments colors={selectedColors} />
         </div>
       </div>
     );
   }
 }
-
 export default Main;

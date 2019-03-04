@@ -1,13 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Selected extends Component {
-
-    render(){
-        return(
-            <div className="selected-color" style={{backgroundColor: this.props.color.code}}>
-                <span>{this.props.color.code}</span>
-            </div>
-        );
-    }
-}
+const Selected = (props) => {
+	const { color } = props;
+	return <div className="selected-color" style={{backgroundColor: color.code}}><span>{color.code}</span></div>;
+};
 export default Selected;
