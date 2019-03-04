@@ -1,0 +1,23 @@
+.color-panel{
+    border: solid 1px #f5f5f5;
+    border-top: none;
+    padding: 5px;
+  }
+
+  .selected-color{
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 5px 12px;
+    color: #fff;
+    border: solid 1px #333;
+  }
+
+  .color-panel-container{
+    height: 100%;
+  }
+
+  .color-panel{
+    height: 580px;
+    overflow-y: scroll;
+  }

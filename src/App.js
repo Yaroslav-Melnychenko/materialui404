@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Grid from './components/grid';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import Main from './components/main';
 
 class App extends Component {
   render() {
     return (
-      <div className="page-container">
-        <div className="content">
-          <Grid />
-        </div>
-      </div>
+      <Main />
     );
   }
 }
