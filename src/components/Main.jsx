@@ -9,65 +9,65 @@ class Main extends Component {
   constructor() {
     super();
     this.audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3');
-		const colors = [];
-		for(let i = 0; i < 90; i += 1) {
-			const color = randomColor();
-			colors.push({
+    const colors = [];
+    for (let i = 0; i < 90; i += 1) {
+      const color = randomColor();
+      colors.push({
         id: uniqid(),
-				code: color,
-        selected: false
-			});
-		};
-		this.state = {
+        code: color,
+        selected: false,
+      });
+    }
+    this.state = {
       colors,
       playButton: 'Play',
-      playing: false
+      playing: false,
     };
     this.selectColor = this.selectColor.bind(this);
   }
 
   getSelectedColors() {
     const { colors } = this.state;
-		return colors.filter(color => color.selected);
-	}
-  
-  updateColors(){
-    const colors = [];
-    for(let i = 0; i < 90; i += 1) {
-			const color = randomColor();
-			colors.push({
-        id: i,
-				code: color,
-				selected: false
-			});
-    };
-    this.setState({colors});
+    return colors.filter(color => color.selected);
   }
 
-  selectColor(id){
+  updateColors() {
+    const colors = [];
+    for (let i = 0; i < 90; i += 1) {
+      const color = randomColor();
+      colors.push({
+        id: uniqid(),
+        code: color,
+        selected: false,
+      });
+    }
+    this.setState({ colors });
+  }
+
+  selectColor(id) {
     const { colors } = this.state;
     const selected = colors.find(color => color.id === id);
     selected.selected = true;
     this.setState(prevState => prevState);
   }
 
-  mixColors(){
-    const {colors} = this.state;
+  mixColors() {
+    const { colors } = this.state;
     colors.sort(() => Math.random() - 0.5);
-    this.setState({colors});
+    this.setState({ colors });
   }
 
-  playMusic(){
+  playMusic() {
     const { playing } = this.state;
-    if(!playing){
+    if (!playing) {
       this.audio.play();
-    }else{
+    } else {
       this.audio.pause();
     }
     this.setState(prevState => ({
       colors: prevState.colors,
       playButton: prevState.playButton === 'Play' ? 'Stop' : 'Play',
-      playing: !prevState.playing
+      playing: !prevState.playing,
     }));
   }
 
