@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import randomColor from 'randomcolor';
 import uniqid from 'uniqid';
-import Header from './header/header';
-import Pallete from './pallete/pallete';
-import Instruments from './instruments/instruments';
+import Header from './Header/Header';
+import Pallete from './Pallete/Pallete';
+import Instruments from './Instruments/Instruments';
 
 class Main extends Component {
   constructor() {
@@ -76,26 +76,22 @@ class Main extends Component {
     const { colors } = this.state;
     const { playButton } = this.state;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <Header />
-          </div>
+      <div className="row">
+        <div className="col-md-12">
+          <Header />
         </div>
-        <div className="row mt-5">
-          <div className="col-md-7">
-            <div className="panel-heading">
-              <button type="button" className="btn btn-info btn-sm" onClick={this.updateColors.bind(this)}>Reset</button>
-              <button type="button" className="btn btn-info btn-sm ml-2" onClick={this.mixColors.bind(this)}>Mix colors</button>
-              <button type="button" className="btn btn-info btn-sm ml-2" onClick={this.playMusic.bind(this)}>
-                {playButton} music
-              </button>
-            </div>
-            <Pallete colors={colors} selectColor={this.selectColor} />
+        <div className="col-md-7">
+          <div className="panel-heading">
+            <button type="button" className="btn btn-info btn-sm" onClick={this.updateColors.bind(this)}>Reset</button>
+            <button type="button" className="btn btn-info btn-sm ml-2" onClick={this.mixColors.bind(this)}>Mix colors</button>
+            <button type="button" className="btn btn-info btn-sm ml-2" onClick={this.playMusic.bind(this)}>
+              {playButton} music
+            </button>
           </div>
-          <div className="col-md-5">
-            <Instruments colors={selectedColors} />
-          </div>
+          <Pallete colors={colors} selectColor={this.selectColor} />
+        </div>
+        <div className="col-md-5">
+          <Instruments colors={selectedColors} />
         </div>
       </div>
     );

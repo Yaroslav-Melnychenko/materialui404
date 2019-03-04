@@ -1,6 +1,6 @@
 import React from 'react';
-import Item from '../item/item';
-import './pallete.scss';
+import Item from '../Item/Item';
+import './Pallete.scss';
 
 const Pallete = (props) => {
   const { colors } = props;

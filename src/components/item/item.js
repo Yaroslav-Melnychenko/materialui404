@@ -1,5 +1,5 @@
 import React from 'react';
-import './item.scss';
+import './Item.scss';
 
 const Item  = (props) => {
   const { color, selectColor} = props;

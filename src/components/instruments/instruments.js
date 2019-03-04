@@ -1,6 +1,6 @@
 import React from 'react';
-import Selected from './selected';
-import './instruments.scss';
+import Selected from './Selected';
+import './Instruments.scss';
 
 const Instruments = (props) => {
   const { colors } = props;
