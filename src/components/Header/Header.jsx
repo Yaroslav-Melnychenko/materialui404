@@ -12,6 +12,7 @@ const Header = React.memo(props => (
     </span>
   </header>
 ));
+
 Header.propTypes = {
   copiedColor: string.isRequired,
 };

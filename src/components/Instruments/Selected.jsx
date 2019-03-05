@@ -27,6 +27,7 @@ const Selected = (props) => {
     </div>
   );
 };
+
 Selected.propTypes = {
   color:
     shape({

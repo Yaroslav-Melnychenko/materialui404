@@ -27,6 +27,7 @@ const Instruments = React.memo((props) => {
     </div>
   );
 });
+
 Instruments.propTypes = {
   colors: arrayOf(
     shape({

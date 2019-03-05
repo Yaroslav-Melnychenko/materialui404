@@ -7,6 +7,7 @@ import './Item.scss';
 const Item = (props) => {
   const { color, selectColor } = props;
   const cssClass = color.selected ? 'colorpaletteitem-component selected' : 'colorpaletteitem-component';
+
   return (
     <span
       className={cssClass}
@@ -16,6 +17,7 @@ const Item = (props) => {
     />
   );
 };
+
 Item.propTypes = {
   color:
     shape({

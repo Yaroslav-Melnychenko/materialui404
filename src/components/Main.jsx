@@ -10,8 +10,10 @@ class Main extends Component {
     super();
     this.audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3');
     const colors = [];
+
     for (let i = 0; i < 90; i += 1) {
       const color = randomColor();
+
       colors.push({
         id: uniqid(),
         code: color,
@@ -27,13 +29,16 @@ class Main extends Component {
 
   getSelectedColors = () => {
     const { colors } = this.state;
+
     return colors.filter(color => color.selected);
   }
 
   updateColors = () => {
     const colors = [];
+
     for (let i = 0; i < 90; i += 1) {
       const color = randomColor();
+
       colors.push({
         id: uniqid(),
         code: color,
@@ -53,6 +58,7 @@ class Main extends Component {
             selected: true,
           };
         }
+
         return color;
       }),
     }));
@@ -68,6 +74,7 @@ class Main extends Component {
             selected: false,
           };
         }
+
         return color;
       }),
     }));
@@ -75,12 +82,14 @@ class Main extends Component {
 
   mixColors = () => {
     const { colors } = this.state;
+
     colors.sort(() => Math.random() - 0.5);
     this.setState({ colors });
   }
 
   playMusic = () => {
     const { playing } = this.state;
+
     if (!playing) {
       this.audio.play();
     } else {
@@ -100,6 +109,7 @@ class Main extends Component {
   render() {
     const selectedColors = this.getSelectedColors();
     const { colors, playing, copiedColor } = this.state;
+
     return (
       <div className="row">
         <div className="col-md-12">

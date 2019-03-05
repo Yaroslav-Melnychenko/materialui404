@@ -7,6 +7,7 @@ import './Pallete.scss';
 
 const Pallete = (props) => {
   const { colors } = props;
+
   return (
     <div className="pallete-container">
       {
@@ -15,6 +16,7 @@ const Pallete = (props) => {
     </div>
   );
 };
+
 Pallete.propTypes = {
   colors: arrayOf(
     shape({
