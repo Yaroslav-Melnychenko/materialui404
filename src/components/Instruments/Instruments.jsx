@@ -15,7 +15,13 @@ const Instruments = React.memo((props) => {
       <div className="color-panel">
         {
           colors.map(color => (
-            <Selected key={color.id} color={color} deleteColor={props.deleteColor} />))
+            <Selected
+              key={color.id}
+              color={color}
+              deleteColor={props.deleteColor}
+              copyColor={props.copyColor}
+            />
+          ))
         }
       </div>
     </div>
@@ -30,5 +36,6 @@ Instruments.propTypes = {
     }),
   ).isRequired,
   deleteColor: func.isRequired,
+  copyColor: func.isRequired,
 };
 export default Instruments;

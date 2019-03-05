@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Selected = (props) => {
-  const { color, deleteColor } = props;
+  const { color, deleteColor, copyColor } = props;
 
   return (
     <div
@@ -19,6 +19,8 @@ const Selected = (props) => {
       </span>
       <span
         className="icon copy-i mr-3"
+        role="presentation"
+        onClick={copyColor.bind(this, color.code)}
       >
         <FontAwesomeIcon icon={faCopy} />
       </span>
@@ -33,5 +35,6 @@ Selected.propTypes = {
       selected: boolean,
     }).isRequired,
   deleteColor: func.isRequired,
+  copyColor: func.isRequired,
 };
 export default Selected;

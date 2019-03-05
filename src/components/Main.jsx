@@ -21,6 +21,7 @@ class Main extends Component {
     this.state = {
       colors,
       playing: false,
+      copiedColor: '',
     };
   }
 
@@ -90,14 +91,19 @@ class Main extends Component {
     }));
   }
 
+  copyColor = (color) => {
+    navigator.clipboard.writeText(color).then(() => {
+      this.setState({ copiedColor: color });
+    }).catch(err => console.log('Something went wrong', err));
+  }
+
   render() {
     const selectedColors = this.getSelectedColors();
-    const { colors } = this.state;
-    const { playing } = this.state;
+    const { colors, playing, copiedColor } = this.state;
     return (
       <div className="row">
         <div className="col-md-12">
-          <Header />
+          <Header copiedColor={copiedColor} />
         </div>
         <div className="col-md-7">
           <div className="panel-heading">
@@ -124,7 +130,11 @@ class Main extends Component {
           <Pallete colors={colors} selectColor={this.selectColor} />
         </div>
         <div className="col-md-5">
-          <Instruments colors={selectedColors} deleteColor={this.deleteColor} />
+          <Instruments
+            colors={selectedColors}
+            deleteColor={this.deleteColor}
+            copyColor={this.copyColor}
+          />
         </div>
       </div>
     );
