@@ -6,7 +6,7 @@ import Selected from './Selected';
 import './Instruments.scss';
 
 
-const Instruments = (props) => {
+const Instruments = React.memo((props) => {
   const { colors } = props;
   return (
     <div className="color-panel-container">
@@ -18,7 +18,7 @@ const Instruments = (props) => {
       </div>
     </div>
   );
-};
+});
 Instruments.propTypes = {
   colors: arrayOf(
     shape({
